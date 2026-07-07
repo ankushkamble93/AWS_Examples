@@ -1,0 +1,8 @@
+{
+  "name": "aws-examples",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "containerEnv": {
+    "AWS_CLI_AUTO_PROMPT": "on-partial"
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
+}
