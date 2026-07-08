@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+echo "This script will list all S3 buckets in your AWS account."
+
+# https://docs.aws.amazon.com/cli/latest/reference/s3api/list-buckets.html
+
+output=$(aws s3api list-buckets --query 'Buckets[].Name' --output text 2>/dev/null)
+
+if [ -z "$output" ]; then
+  echo "You have no active buckets."
+else
+  echo "$output"
+fi
