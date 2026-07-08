@@ -2,7 +2,11 @@
   "name": "aws-examples",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
-    "ghcr.io/devcontainers/features/powershell:2.0.2": {}
+    "ghcr.io/devcontainers/features/powershell:2.0.2": {},
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/ruby:1": {}
   },
   "containerEnv": {
     "AWS_CLI_AUTO_PROMPT": "on-partial"
