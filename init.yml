@@ -1,4 +1,14 @@
 tasks:
+- name: terraform
+  before: |
+    sudo apt-get install unzip
+    if ! command -v terraform >/dev/null 2>&1; then
+      cd /tmp
+      curl -fsSL "https://releases.hashicorp.com/terraform/1.7.6/terraform_1.7.6_linux_amd64.zip" -o "terraform.zip"
+      unzip -q terraform.zip
+      sudo mv terraform /usr/local/bin/
+      rm -f terraform.zip
+    fi
 # random utilities
   - name: utils
     before: |
