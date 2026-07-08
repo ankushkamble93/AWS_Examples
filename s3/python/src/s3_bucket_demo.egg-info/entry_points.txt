@@ -1,0 +1,3 @@
+[console_scripts]
+s3-bucket-demo = s3_bucket_demo.main:main
+s3-example = s3_bucket_demo.example:main

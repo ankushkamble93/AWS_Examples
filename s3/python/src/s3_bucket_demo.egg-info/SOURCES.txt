@@ -1,0 +1,12 @@
+Readme.md
+pyproject.toml
+src/s3_bucket_demo/__init__.py
+src/s3_bucket_demo/example.py
+src/s3_bucket_demo/main.py
+src/s3_bucket_demo/s3_ops.py
+src/s3_bucket_demo.egg-info/PKG-INFO
+src/s3_bucket_demo.egg-info/SOURCES.txt
+src/s3_bucket_demo.egg-info/dependency_links.txt
+src/s3_bucket_demo.egg-info/entry_points.txt
+src/s3_bucket_demo.egg-info/requires.txt
+src/s3_bucket_demo.egg-info/top_level.txt
