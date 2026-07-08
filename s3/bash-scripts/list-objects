@@ -1,1 +1,25 @@
 #!/usr/bin/env bash
+echo "This script will list objects in a bucket."
+
+# check for bucket name
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name eg. /bucket my-bucket-name."
+    exit 1
+fi
+
+BUCKET_NAME=$1
+# https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html
+
+OBJECT_COUNT=$(aws s3api list-objects-v2 \
+  --bucket "$BUCKET_NAME" \
+  --region ca-central-1 \
+  --query "length(Contents[])" \
+  --output text)
+
+echo "Total objects: $OBJECT_COUNT"
+
+aws s3api list-objects-v2 \
+  --bucket "$BUCKET_NAME" \
+  --region ca-central-1 \
+  --query "Contents[].{Key: Key, Size: Size, LastModified: LastModified}" \
+  --output text

@@ -1,1 +1,33 @@
 #!/usr/bin/env bash
+echo "This script will put objects in a bucket."
+
+# exit immediately if a command exits with a non-zero status
+set -e
+
+# where we'll store these files
+OUTPUT_DIR="/tmp/s3-bash-scripts"
+
+# remove the folder if it exists
+rm -rf "$OUTPUT_DIR"
+
+# create the output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+
+#generate a random number of files to create
+NUM_FILES=$((RANDOM % 6 + 5))
+
+for (( i=1; i<=NUM_FILES; i++ )); do
+  # generate a random file name
+  FILE_NAME="file_$RANDOM.txt"
+  FILE_PATH="$OUTPUT_DIR/$FILE_NAME"
+
+  # create a random file with some content
+  echo "This is a random file with random content: $RANDOM" > "$FILE_PATH"
+
+  # put the file in the bucket
+  aws s3 cp "$FILE_PATH" "s3://$1/$FILE_NAME" --region ca-central-1
+
+  echo "Uploaded $FILE_NAME to s3://$1/"
+done
+
+tree "$OUTPUT_DIR"

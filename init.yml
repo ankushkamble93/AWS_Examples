@@ -1,4 +1,8 @@
 tasks:
+# random utilities
+  - name: utils
+    before: |
+      sudo apt-get install tree
   - name: install-aws-cli
     run: |
       if ! command -v aws >/dev/null 2>&1; then
